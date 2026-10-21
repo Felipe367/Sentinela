@@ -62,15 +62,29 @@
     });
 
     // 2. Carregar e listar os usuraios cadastrados
-    function carregarUsuario() {
+    function carregarUsuarios() {
         fetch("/usuarios")
         .then(res => res.json())
         .then(usuarios => {
             const div = document.getElementById
             ("listaUsuarios");
             div.innerHTML = "";
-        })
+
+
+            usuarios.forEach(u => {
+              div.innerHTML += `
+                <div class="card">
+                  <b>Usuários:</b> ${u.usuario} |
+                   <b>Setor:</b> ${u.tipo}
+                </div>
+              `;
+            });
+        });
     }
+
+    // Carregar a lista automaticamente ao abrir a página
+    carregarUsuarios();
  </script>
+ 
 </body>
 </html>
