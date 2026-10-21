@@ -29,6 +29,14 @@ function login() {
     if(data.tipo === "atendimento") location.href = "atendimento.html";
   });
 }
+
+// Atalho secreto: Ctrl + Alt + A redirecona para admin.html
+window.addEventListener("keydown", function(e) {
+  if (e.ctrlKey && e.altKey && (e.key === "a" || e.key === "A")) {
+    e.preventDefault();
+    window.location.href = "admin.html";
+  }
+});
 </script>
 </body>
 </html>

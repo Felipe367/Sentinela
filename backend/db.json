@@ -14,6 +14,16 @@
       "usuario": "atendimento",
       "senha": "123",
       "tipo": "atendimento"
+    },
+    {
+      "usuario": "Felipe",
+      "senha": "tarzansamurai890",
+      "tipo": "medico"
+    },
+    {
+      "usuario": "Ubiratan",
+      "senha": "ubira890",
+      "tipo": "triagem"
     }
   ],
   "pacientes": [

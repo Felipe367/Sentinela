@@ -40,46 +40,48 @@
     document.getElementById("formUsuario").addEventListener("submit", function(e) {
         e.preventDefault();
 
-        const usuário = document.getElementById("usuário").value;
+      const usuario = document.getElementById("usuario").value.trim();
         const senha = document.getElementById("senha").value;
         const tipo = document.getElementById("tipo").value;
 
         fetch("/usuarios", {
             method:"POST",
-            headers: { "Content-Type": "applocation/json" },
+        headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ usuario, senha, tipo })
         })
-        .then(res => res.json())
-        .then(dados => {
-            if (dados.erro) {
-                alert("Erro: " + dados.erro);
-            } else {
-                alert("Usuário cadastrado com sucesso!");
-                document.getElementById("formUsuario").reset();
-                carregarUsuario();
-            }
+      .then(async res => {
+        const dados = await res.json();
+        if (!res.ok) throw new Error(dados.erro || "Não foi possível cadastrar o usuário");
+
+        alert("Usuário cadastrado com sucesso!");
+        document.getElementById("formUsuario").reset();
+        await carregarUsuarios();
+      })
+      .catch(erro => {
+        alert("Erro: " + erro.message);
         });
     });
 
     // 2. Carregar e listar os usuraios cadastrados
-    function carregarUsuarios() {
-        fetch("/usuarios")
-        .then(res => res.json())
-        .then(usuarios => {
-            const div = document.getElementById
-            ("listaUsuarios");
-            div.innerHTML = "";
+    async function carregarUsuarios() {
+      const div = document.getElementById("listaUsuarios");
 
+      try {
+        const res = await fetch("/usuarios");
+        if (!res.ok) throw new Error("Não foi possível carregar os usuários");
 
-            usuarios.forEach(u => {
-              div.innerHTML += `
-                <div class="card">
-                  <b>Usuários:</b> ${u.usuario} |
-                   <b>Setor:</b> ${u.tipo}
-                </div>
-              `;
-            });
+        const usuarios = await res.json();
+        div.innerHTML = "";
+
+        usuarios.forEach(u => {
+          const item = document.createElement("div");
+          item.className = "card";
+          item.textContent = `Usuário: ${u.usuario} | Setor: ${u.tipo}`;
+          div.appendChild(item);
         });
+      } catch (erro) {
+        div.textContent = erro.message;
+      }
     }
 
     // Carregar a lista automaticamente ao abrir a página
