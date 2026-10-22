@@ -131,6 +131,39 @@ app.get("/triagens", (req, res) => {
   res.json(db.triagens);
 });
 
+// TV
+app.get("/tv/chamada", (req, res) => {
+  const db = readDB();
+  const historico = db.tvChamadas || [];
+  res.json({ chamada: historico[0] || null, historico });
+});
+
+app.post("/tv/chamada", (req, res) => {
+  const paciente = typeof req.body.paciente === "string"
+    ? req.body.paciente.trim()
+    : "";
+
+  if (!paciente) {
+    return res.status(400).json({ erro: "Informe o nome do paciente" });
+  }
+
+  const db = readDB();
+  db.tvChamadas = db.tvChamadas || [];
+  const chamada = {
+    id: Date.now(),
+    paciente,
+    localTipo: "MÉDICO",
+    localNumero: "01",
+    createdAt: new Date()
+  };
+
+  db.tvChamadas.unshift(chamada);
+  db.tvChamadas = db.tvChamadas.slice(0, 20);
+  writeDB(db);
+
+  res.status(201).json({ chamada });
+});
+
 // IMPLEMENTADO: rota com lista fixa de medicações
 app.get("/lista-medicacoes", (req, res) => {
   res.json([

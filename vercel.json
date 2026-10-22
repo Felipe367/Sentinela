@@ -18,6 +18,10 @@
       "destination": "/api/index.js"
     },
     {
+      "source": "/tv/chamada",
+      "destination": "/api/index.js"
+    },
+    {
       "source": "/consulta",
       "destination": "/api/index.js"
     },

@@ -117,6 +117,10 @@ button:focus-visible {
 }
 
 .medico-pacientes .card button {
+  margin-top: 8px;
+}
+
+.medico-pacientes .card button:first-of-type {
   margin-top: auto;
 }
 

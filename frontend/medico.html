@@ -65,6 +65,9 @@ function carregar() {
             <button onclick="selecionar(${index})">
               Atender
             </button>
+            <button class="btn-chamar-tv" onclick="chamarNaTV(${index})">
+              📺 Chamar na TV
+            </button>
           </div>
         `;
       });
@@ -79,6 +82,32 @@ function selecionar(index) {
 
   if (t.alergia && t.alergia !== "Nenhuma") {
     alert("⚠️ Paciente possui alergia: " + t.alergia);
+  }
+}
+
+async function chamarNaTV(index) {
+  const paciente = triagensCarregadas[index];
+
+  if (!paciente) {
+    alert("Não foi possível localizar este paciente.");
+    return;
+  }
+
+  try {
+    const resposta = await fetch("/tv/chamada", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ paciente: paciente.nome })
+    });
+    const dados = await resposta.json();
+
+    if (!resposta.ok) {
+      throw new Error(dados.erro || "Não foi possível chamar o paciente na TV.");
+    }
+
+    alert(`Paciente ${paciente.nome} chamado na TV.`);
+  } catch (erro) {
+    alert(`Erro ao chamar paciente na TV: ${erro.message}`);
   }
 }
 
