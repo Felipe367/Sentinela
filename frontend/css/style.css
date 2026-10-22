@@ -90,6 +90,36 @@ button:focus-visible {
   box-shadow:0 5px 14px rgba(24, 76, 91, 0.1);
 }
 
+.medico-pacientes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 12px;
+  align-items: stretch;
+}
+
+.medico-pacientes .card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+  padding: 12px;
+}
+
+.medico-pacientes .card h3 {
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+.medico-pacientes .card p {
+  margin: 4px 0;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.medico-pacientes .card button {
+  margin-top: auto;
+}
+
 .pacientes-fila {
   margin-bottom: 30px;
   padding: 16px;
