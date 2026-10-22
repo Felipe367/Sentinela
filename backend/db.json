@@ -539,6 +539,13 @@
   ],
   "tvChamadas": [
     {
+      "id": 1792671844675,
+      "paciente": "test",
+      "localTipo": "GUICHÊ",
+      "localNumero": "33",
+      "createdAt": "2026-10-22T12:24:04.675Z"
+    },
+    {
       "id": 1792671561524,
       "paciente": "Ubiratão",
       "localTipo": "MÉDICO",
