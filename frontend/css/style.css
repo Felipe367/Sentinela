@@ -124,6 +124,23 @@ button:focus-visible {
   margin-top: auto;
 }
 
+.medico-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.medico-cabecalho h2,
+.medico-cabecalho button {
+  margin: 0;
+}
+
+.medico-cabecalho button {
+  width: auto;
+}
+
 .pacientes-fila {
   margin-bottom: 30px;
   padding: 16px;
@@ -338,12 +355,14 @@ hr {
 
 @media (max-width: 600px) {
   .triagem-cabecalho,
+  .medico-cabecalho,
   .pacientes-fila h3 {
     align-items: stretch;
     flex-direction: column;
   }
 
-  .triagem-cabecalho .btn-abrir-tv {
+  .triagem-cabecalho .btn-abrir-tv,
+  .medico-cabecalho button {
     width: 100%;
     margin-left: 0;
   }
