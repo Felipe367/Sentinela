@@ -90,69 +90,75 @@ button:hover{
 }
 
 /* Fundo da página */
-body {
+.login-page {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 /* Caixa central */
-.container {
-    width: 100%;
+.login-container {
+    width: min(100%, 440px);
     padding: 32px;
-    background: #4da6ff;
-    border: 2px solid #004181;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(224, 255, 234, 0.96));
+    border: 2px solid rgba(255, 255, 255, 0.85);
     border-radius: 16px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 14px 35px rgba(24, 76, 91, 0.24);
     text-align: center;
-    margin: 20px;
+    backdrop-filter: blur(8px);
 }
 
 /* Imagem */
-.container img {
+.login-container img {
     width: 120px;
     margin-bottom: 20px;
 }
 
 /* Título */
-.container h2 {
-    color: #2b5d7f;
+.login-container h2 {
+    color: #28627a;
     margin-bottom: 25px;
 }
 
 /* Campos de entrada */
-.container input {
+.login-container input {
     width: 100%;
     padding: 12px;
     margin-bottom: 15px;
-    border: 1px solid #b0b0b0;
+    border: 1px solid #b7dfd1;
     border-radius: 6px;
     font-size: 16px;
     outline: none;
-    transition: 0.3s;
+    color: #285568;
+    background: linear-gradient(110deg, #ffffff, #effaff);
+    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
-.container input:focus {
-    border-color: #4da6ff;
-    box-shadow: 0 0 5px rgba(77, 166, 255, 0.5);
+.login-container input:focus {
+    border-color: #70c9a0;
+    background: linear-gradient(110deg, #ffffff, #e9fff0);
+    box-shadow: 0 0 0 3px rgba(112, 201, 160, 0.2);
 }
 
 /* Botão */
-.container button {
+.login-container button {
     width: 100%;
     padding: 12px;
     border: none;
     border-radius: 6px;
-     background: linear-gradient(135deg, #004d88, #007c36);
+    background: linear-gradient(120deg, #70c5f5, #83d7a4);
     color: white;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
-
+    box-shadow: 0 5px 12px rgba(66, 157, 150, 0.25);
+    transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
-.container button:hover {
-    background: linear-gradient(135deg, #7ec8ff, #9ff5c4);
+.login-container button:hover {
+    background: linear-gradient(120deg, #5bb4eb, #6fc991);
+    box-shadow: 0 7px 16px rgba(66, 157, 150, 0.35);
+    transform: translateY(-1px);
 }
