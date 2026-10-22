@@ -213,6 +213,37 @@ button:focus-visible {
   text-decoration: underline;
 }
 
+.login-back-button {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 10;
+  width: auto;
+  margin: 0;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 0 10px 10px 0;
+  background: linear-gradient(120deg, #70c5f5, #83d7a4);
+  box-shadow: 0 5px 12px rgba(66, 157, 150, 0.3);
+  color: #20566a;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  transform: translateY(-50%);
+  transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
+}
+
+.login-back-button:hover {
+  padding-left: 20px;
+  background: linear-gradient(120deg, #5bb4eb, #6fc991);
+  box-shadow: 0 7px 16px rgba(66, 157, 150, 0.4);
+}
+
+.login-back-button:focus-visible {
+  outline: 3px solid rgba(40, 98, 122, 0.65);
+  outline-offset: 3px;
+}
+
 .btn-abrir-tv,
 .btn-atualizar {
   width: auto;
