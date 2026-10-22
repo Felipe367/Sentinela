@@ -1,21 +1,29 @@
 body{
-  font-family: Arial;
+  font-family: Arial, Helvetica, sans-serif;
   background-image: url("hospital_empatia_sempre.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
   margin:0;
+  color: #285568;
 }
 
 .container{
   width:90%;
   max-width:900px;
   margin:20px auto;
-  background:white;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(224, 255, 234, 0.95));
   padding:20px;
-  border-radius:12px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius:16px;
+  box-shadow:0 12px 30px rgba(24, 76, 91, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+h2,
+h3 {
+  color: #28627a;
 }
 
 input,
@@ -26,8 +34,25 @@ button{
   padding:12px;
   margin-top:10px;
   border-radius:8px;
-  border:1px solid #ccc;
+  border:1px solid #b7dfd1;
   font-size:16px;
+}
+
+input,
+select,
+textarea {
+  color: #285568;
+  background: linear-gradient(110deg, #ffffff, #effaff);
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #70c9a0;
+  background: linear-gradient(110deg, #ffffff, #e9fff0);
+  box-shadow: 0 0 0 3px rgba(112, 201, 160, 0.2);
+  outline: none;
 }
 
 textarea{
@@ -36,42 +61,152 @@ textarea{
 }
 
 button{
-  background:#3498db;
-  color:white;
+  background:linear-gradient(120deg, #70c5f5, #83d7a4);
+  color:#20566a;
   border:none;
   cursor:pointer;
+  font-weight: bold;
+  box-shadow:0 5px 12px rgba(66, 157, 150, 0.25);
+  transition:background 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
 button:hover{
-  background:#2980b9;
+  background:linear-gradient(120deg, #5bb4eb, #6fc991);
+  box-shadow:0 7px 16px rgba(66, 157, 150, 0.35);
+  transform:translateY(-1px);
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(40, 98, 122, 0.45);
+  outline-offset: 2px;
 }
 
 .card{
-  border:1px solid #ddd;
+  border:1px solid #c9e6dc;
   padding:15px;
   margin:15px 0;
-  border-radius:10px;
-  background:white;
-  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  border-radius:12px;
+  background:linear-gradient(145deg, #ffffff, #f0fff5);
+  box-shadow:0 5px 14px rgba(24, 76, 91, 0.1);
+}
+
+.pacientes-fila {
+  margin-bottom: 30px;
+  padding: 16px;
+  border: 1px solid #c9e6dc;
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(232, 250, 255, 0.94));
+  box-shadow: 0 5px 14px rgba(24, 76, 91, 0.1);
+}
+
+.pacientes-fila h3 {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pacientes-fila h3 span {
+  color: #66818b;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.triagem-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.triagem-cabecalho h2 {
+  margin: 0;
+}
+
+.fila-carregando {
+  text-align: center;
+}
+
+.fila-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 10px 14px;
+  border: 1px solid #d1e9e2;
+  border-radius: 8px;
+  background: linear-gradient(110deg, #ffffff, #f0fff5);
+}
+
+.fila-item strong {
+  font-size: 15px;
+}
+
+.fila-item small,
+.texto-secundario {
+  color: #66818b;
+  font-size: 12px;
+}
+
+.link-voltar {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #347fa0;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.link-voltar:hover {
+  color: #28627a;
+  text-decoration: underline;
+}
+
+.btn-abrir-tv,
+.btn-atualizar {
+  width: auto;
+}
+
+.btn-abrir-tv {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.btn-atualizar {
+  margin-top: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+hr {
+  margin: 25px 0;
+  border: none;
+  border-top: 1px solid #c9e6dc;
 }
 
 .verde{
-  background:#43fc90;
-  color:rgb(30, 159, 1);
+  display: inline-block;
+  background:linear-gradient(120deg, #b6f2ce, #dff8e8);
+  color:#247344;
   padding:3px 7px;
   border-radius:6px;
 }
 
 .amarelo{
-  background:#ffe374;
-  color:rgb(216, 201, 0);
+  display: inline-block;
+  background:linear-gradient(120deg, #fff0a8, #fff8d6);
+  color:#806b14;
   padding:3px 7px;
   border-radius:6px;
 }
 
 .vermelho{
-  background:#f68a7e;
-  color:rgb(156, 0, 0);
+  display: inline-block;
+  background:linear-gradient(120deg, #ffc1b9, #ffe0dc);
+  color:#963c35;
   padding:3px 7px;
   border-radius:6px;
 }
@@ -149,7 +284,7 @@ button:hover{
     border: none;
     border-radius: 6px;
     background: linear-gradient(120deg, #70c5f5, #83d7a4);
-    color: white;
+    color: #20566a;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -161,4 +296,21 @@ button:hover{
     background: linear-gradient(120deg, #5bb4eb, #6fc991);
     box-shadow: 0 7px 16px rgba(66, 157, 150, 0.35);
     transform: translateY(-1px);
+}
+
+.login-container button {
+    margin-top: 0;
+}
+
+@media (max-width: 600px) {
+  .triagem-cabecalho,
+  .pacientes-fila h3 {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .triagem-cabecalho .btn-abrir-tv {
+    width: 100%;
+    margin-left: 0;
+  }
 }
