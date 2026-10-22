@@ -68,6 +68,12 @@ app.post("/atendimento", (req, res) => {
 
 // TRIAGEM
 app.post("/triagem", (req, res) => {
+  const nome = typeof req.body.nome === "string" ? req.body.nome.trim() : "";
+
+  if (!nome) {
+    return res.status(400).json({ erro: "Informe o nome do paciente" });
+  }
+
   const db = readDB();
 
   let risco = req.body.risco;
@@ -82,7 +88,7 @@ app.post("/triagem", (req, res) => {
 
   const triagem = {
     id: Date.now(),
-    nome: req.body.nome,
+    nome,
     sintoma: req.body.sintoma,
     temperatura: req.body.temperatura,
     alergia: req.body.alergia,
@@ -92,10 +98,17 @@ app.post("/triagem", (req, res) => {
     createdAt: new Date()
   };
 
-  db.triagens.push(triagem);
-  writeDB(db);
+  db.triagens = db.triagens || [];
 
-  res.json(triagem);
+  try {
+    db.triagens.push(triagem);
+    writeDB(db);
+  } catch (erro) {
+    console.error("Erro ao salvar triagem no banco de dados:", erro);
+    return res.status(500).json({ erro: "Não foi possível salvar a triagem no banco de dados" });
+  }
+
+  res.status(201).json(triagem);
 });
 
 // LISTAR TRIAGENS
