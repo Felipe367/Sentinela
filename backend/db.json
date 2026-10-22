@@ -448,5 +448,21 @@
       "obs": "passando muito mal com dor no peito",
       "createdAt": "2026-08-06T15:21:20.807Z"
     }
+  ],
+  "tvChamadas": [
+    {
+      "id": 1792670322985,
+      "paciente": "felipe",
+      "localTipo": "MÉDICO",
+      "localNumero": "01",
+      "createdAt": "2026-10-22T11:58:42.985Z"
+    },
+    {
+      "id": 1792670315683,
+      "paciente": "jesus",
+      "localTipo": "MÉDICO",
+      "localNumero": "01",
+      "createdAt": "2026-10-22T11:58:35.683Z"
+    }
   ]
 }
