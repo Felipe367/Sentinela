@@ -128,9 +128,12 @@ app.post("/tv/chamada", (req, res) => {
   const paciente = typeof req.body.paciente === "string"
     ? req.body.paciente.trim()
     : "";
+  const localNumero = typeof req.body.localNumero === "string"
+    ? req.body.localNumero.trim()
+    : "";
 
-  if (!paciente) {
-    return res.status(400).json({ erro: "Informe o nome do paciente" });
+  if (!paciente || !/^\d+$/.test(localNumero)) {
+    return res.status(400).json({ erro: "Informe o nome do paciente e um número de guichê válido" });
   }
 
   const db = readDB();
@@ -138,8 +141,8 @@ app.post("/tv/chamada", (req, res) => {
   const chamada = {
     id: Date.now(),
     paciente,
-    localTipo: "MÉDICO",
-    localNumero: "01",
+    localTipo: "GUICHÊ",
+    localNumero,
     createdAt: new Date()
   };
 

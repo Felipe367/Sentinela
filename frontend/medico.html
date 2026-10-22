@@ -96,11 +96,26 @@ async function chamarNaTV(index) {
     return;
   }
 
+  const guiche = prompt("Qual guichê do paciente?");
+
+  if (guiche === null) {
+    return;
+  }
+
+  const numeroGuiche = guiche.trim();
+  if (!/^\d+$/.test(numeroGuiche)) {
+    alert("Informe um número de guichê válido.");
+    return;
+  }
+
   try {
     const resposta = await fetch("/tv/chamada", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ paciente: paciente.nome })
+      body: JSON.stringify({
+        paciente: paciente.nome,
+        localNumero: numeroGuiche
+      })
     });
     const dados = await resposta.json();
 
@@ -108,7 +123,7 @@ async function chamarNaTV(index) {
       throw new Error(dados.erro || "Não foi possível chamar o paciente na TV.");
     }
 
-    alert(`Paciente ${paciente.nome} chamado na TV.`);
+    alert(`Paciente ${paciente.nome} chamado no guichê ${numeroGuiche}.`);
   } catch (erro) {
     alert(`Erro ao chamar paciente na TV: ${erro.message}`);
   }
