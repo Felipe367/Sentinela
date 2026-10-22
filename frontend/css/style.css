@@ -1,6 +1,10 @@
 body{
   font-family: Arial;
-  background: URL(hospital_empatia_sempre.jpg) no-repeat center center fixed;
+  background-image: url("hospital_empatia_sempre.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
   margin:0;
 }
 
@@ -91,8 +95,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #7ec8ff, #9ff5c4);
-    background-image: url("images.jpg");
 }
 
 /* Caixa central */
@@ -154,4 +156,3 @@ body {
 .container button:hover {
     background: linear-gradient(135deg, #7ec8ff, #9ff5c4);
 }
-
